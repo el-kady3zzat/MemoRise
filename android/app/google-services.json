@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "666326452716",
+    "project_id": "memorise-1bfcd",
+    "storage_bucket": "memorise-1bfcd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666326452716:android:8561c7057276a75b4398c9",
+        "android_client_info": {
+          "package_name": "com.example.fluttercourse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666326452716-r6270n316mulri9n3mgm5dfid5c8bfea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fluttercourse",
+            "certificate_hash": "7fd40c6c015e233c3d2ba1479b68f30ba8ebfe60"
+          }
+        },
+        {
+          "client_id": "666326452716-jh7121jamic00708ntm0r36saen0ponm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtTutRh0HMkffgSkX0rDkivQMTdFJjQmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666326452716-jh7121jamic00708ntm0r36saen0ponm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
