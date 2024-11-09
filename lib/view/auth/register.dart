@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:memorise/controllers/login_controller.dart';
 import 'package:memorise/controllers/register_controller.dart';
 import 'package:memorise/theme/colors.dart';
-import 'package:memorise/view/components/custom_back_button.dart';
-import 'package:memorise/view/components/custom_loading_dialog.dart';
-import 'package:memorise/view/components/custom_login_providers.dart';
-import 'package:memorise/view/components/custom_logo.dart';
-import 'package:memorise/view/components/custom_material_button.dart';
-import 'package:memorise/view/components/custom_text_form_field.dart';
+import 'package:memorise/ui_components/custom_back_button.dart';
+import 'package:memorise/ui_components/custom_loading_dialog.dart';
+import 'package:memorise/ui_components/custom_login_providers.dart';
+import 'package:memorise/ui_components/custom_logo.dart';
+import 'package:memorise/ui_components/custom_material_button.dart';
+import 'package:memorise/ui_components/custom_text_form_field.dart';
 
 class Register extends StatelessWidget {
   Register({super.key});

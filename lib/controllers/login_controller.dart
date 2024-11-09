@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:memorise/services/firebase_services.dart';
-import 'package:memorise/view/components/custom_loading_dialog.dart';
-import '../view/components/custom_awesome_dialog.dart';
+import 'package:memorise/ui_components/custom_loading_dialog.dart';
+import '../ui_components/custom_awesome_dialog.dart';
 
 class LoginController extends GetxController {
   late TextEditingController emailController;

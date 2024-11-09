@@ -9,11 +9,11 @@ import 'package:name_bar_animation/searchbar_animation.dart';
 
 import 'package:memorise/controllers/categories_controller.dart';
 import 'package:memorise/theme/colors.dart';
-import 'package:memorise/view/components/category_card.dart';
-import 'package:memorise/view/components/custom_back_button.dart';
-import 'package:memorise/view/components/custom_material_button.dart';
-import 'package:memorise/view/components/custom_text_form_field.dart';
-import 'package:memorise/view/components/ui_helper.dart';
+import 'package:memorise/ui_components/category_card.dart';
+import 'package:memorise/ui_components/custom_back_button.dart';
+import 'package:memorise/ui_components/custom_material_button.dart';
+import 'package:memorise/ui_components/custom_text_form_field.dart';
+import 'package:memorise/ui_components/ui_helper.dart';
 
 class Category extends StatelessWidget {
   Category({super.key});

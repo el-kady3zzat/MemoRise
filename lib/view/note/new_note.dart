@@ -8,10 +8,10 @@ import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:intl/intl.dart';
 import 'package:memorise/controllers/new_note_controller.dart';
 import 'package:memorise/theme/colors.dart';
-import 'package:memorise/view/components/custom_back_button.dart';
+import 'package:memorise/ui_components/custom_back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:memorise/view/components/custom_note_text_form_field.dart';
-import 'package:memorise/view/components/ui_helper.dart';
+import 'package:memorise/ui_components/custom_note_text_form_field.dart';
+import 'package:memorise/ui_components/ui_helper.dart';
 
 class NewNote extends StatelessWidget {
   NewNote({super.key});
@@ -42,7 +42,7 @@ class NewNote extends StatelessWidget {
           child: Column(
         children: [
           //
-          header(context),
+          header(),
           //
           CustomNoteTextFormField(
             controller: controller.titleController,
@@ -79,7 +79,7 @@ class NewNote extends StatelessWidget {
     );
   }
 
-  Widget header(context) {
+  Widget header() {
     return Card(
         elevation: 10,
         child: Padding(

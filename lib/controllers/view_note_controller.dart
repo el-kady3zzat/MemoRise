@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:memorise/model/note_model.dart';
 import 'package:memorise/services/firebase_services.dart';
-import 'package:memorise/view/components/ui_helper.dart';
+import 'package:memorise/ui_components/ui_helper.dart';
 
 class ViewNoteController extends GetxController {
   late String catDocId;
@@ -26,8 +26,6 @@ class ViewNoteController extends GetxController {
   late List imagesList = [];
   List<dynamic> downloadUrls = [];
   List deletedUrls = [];
-
-  // ViewNoteController({required this.catDocId, required this.noteDocId});
 
   @override
   void onInit() {
@@ -64,7 +62,6 @@ class ViewNoteController extends GetxController {
       }
     } else {
       xFiles = await picker.pickMultiImage();
-      // if (xFiles != null) paths.addAll(xFiles);
       paths.addAll(xFiles);
       for (int i = 0; i < xFiles.length; i++) {
         pathIndex[imagesList.length + i] = i;

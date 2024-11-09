@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:memorise/services/firebase_services.dart';
-import 'package:memorise/view/components/ui_helper.dart';
+import 'package:memorise/ui_components/ui_helper.dart';
 
 class NewNoteController extends GetxController {
   late String catDocId;
@@ -35,7 +35,6 @@ class NewNoteController extends GetxController {
       if (xFile != null) paths!.add(xFile);
     } else {
       xFiles = await picker.pickMultiImage();
-      // if (xFiles != null) paths!.addAll(xFiles);
       paths!.addAll(xFiles);
     }
 
@@ -64,12 +63,20 @@ class NewNoteController extends GetxController {
     }
 
     List downloadUrls = [];
-    final String? noteDocId = noteServices.addNotes(catDocId: catDocId, data: {
-      'title': titleController.text,
-      'note': contentController.text,
-      'time': time,
-      'urls': downloadUrls
-    });
+    final String? noteDocId = noteServices.addNotes(
+        catDocId: catDocId,
+        data: {
+          'title': titleController.text,
+          'note': contentController.text,
+          'time': time,
+          'urls': downloadUrls
+        },
+        showSnack: paths!.isEmpty);
+
+    if (paths!.isEmpty) {
+      Get.offNamed('/view_edit_note',
+          arguments: {'catDocId': catDocId, 'noteDocId': noteDocId});
+    }
 
     if (paths!.isNotEmpty) {
       Map<String, dynamic> urls = {};

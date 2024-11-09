@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:memorise/controllers/all_notes_controller.dart';
 import 'package:memorise/model/note_model.dart';
 import 'package:memorise/theme/colors.dart';
-import 'package:memorise/view/components/custom_back_button.dart';
+import 'package:memorise/ui_components/custom_back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:memorise/view/components/note_card.dart';
+import 'package:memorise/ui_components/note_card.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 
 class AllNotes extends StatelessWidget {
@@ -65,7 +65,7 @@ class AllNotes extends StatelessWidget {
                             filteredTextController.text.isNotEmpty
                         ? Center(
                             child: Image.asset(
-                            'images/nothing_found.gif',
+                            'assets/images/nothing_found.gif',
                             width: 150,
                           ))
                         : ListView.builder(

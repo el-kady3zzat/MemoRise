@@ -15,8 +15,8 @@ import 'package:memorise/constants/constants.dart';
 import 'package:memorise/model/cat_model.dart';
 import 'package:memorise/model/note_model.dart';
 import 'package:memorise/theme/colors.dart';
-import 'package:memorise/view/components/custom_awesome_dialog.dart';
-import 'package:memorise/view/components/ui_helper.dart';
+import 'package:memorise/ui_components/custom_awesome_dialog.dart';
+import 'package:memorise/ui_components/ui_helper.dart';
 
 class LoginServices {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -368,7 +368,9 @@ class NoteServices {
   }
 
   String? addNotes(
-      {required String catDocId, required Map<String, dynamic> data}) {
+      {required String catDocId,
+      required Map<String, dynamic> data,
+      showSnack}) {
     DocumentReference docRef =
         db.collection('categories').doc(catDocId).collection('notes').doc();
 
@@ -376,7 +378,11 @@ class NoteServices {
       (e, _) {
         UiHelper.getSnackBar('error'.tr, 'error_adding_the_note'.tr);
       },
-    );
+    ).then((onValue) {
+      if (showSnack) {
+        UiHelper.getSnackBar('success'.tr, 'success_adding_the_note'.tr);
+      }
+    });
 
     if (docRef.id.isNotEmpty) {
       return docRef.id;
