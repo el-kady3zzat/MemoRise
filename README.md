@@ -59,4 +59,4 @@ Contributions are always welcome! If you have suggestions or improvements, feel 
 
 ## Author
 
-Created by EL-Kady Ezzat – [GitHub](https://github.com/el-kady3zzat/MemoRise)
+Created by EL-Kady Ezzat – [GitHub](https://github.com/el-kady3zzat)
