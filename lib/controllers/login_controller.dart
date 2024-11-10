@@ -7,19 +7,10 @@ import 'package:memorise/ui_components/custom_loading_dialog.dart';
 import '../ui_components/custom_awesome_dialog.dart';
 
 class LoginController extends GetxController {
-  late TextEditingController emailController;
-  late TextEditingController passController;
-  late CustomAwesomeDialog awesomeDialog;
-  late LoginServices loginServices;
-
-  @override
-  void onInit() {
-    super.onInit();
-    emailController = TextEditingController();
-    passController = TextEditingController();
-    awesomeDialog = CustomAwesomeDialog();
-    loginServices = LoginServices();
-  }
+  late TextEditingController emailController = TextEditingController();
+  late TextEditingController passController = TextEditingController();
+  late CustomAwesomeDialog awesomeDialog = CustomAwesomeDialog();
+  late LoginServices loginServices = LoginServices();
 
   void checkInputFields(BuildContext context) {
     if (emailController.text.isEmpty || passController.text.isEmpty) {

@@ -18,10 +18,8 @@ import 'package:memorise/ui_components/ui_helper.dart';
 class Category extends StatelessWidget {
   Category({super.key});
 
-  final CategoriesController categoryController =
-      Get.put(CategoriesController());
-  final TextEditingController categoryNameController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+  final CategoriesController controller = Get.put(CategoriesController());
+
   late SearchBarAnimation searchBar;
   late Timer expandTimer;
 
@@ -32,7 +30,7 @@ class Category extends StatelessWidget {
           searchBar.expand();
         }
       });
-      expandTimer = Timer(const Duration(seconds: 10), () {
+      expandTimer = Timer(const Duration(seconds: 5), () {
         if (Get.isRegistered<CategoriesController>()) {
           searchBar.expand();
         }
@@ -61,7 +59,7 @@ class Category extends StatelessWidget {
             //
             Obx(
               () {
-                if (categoryController.allCategories.isEmpty) {
+                if (controller.allCategories.isEmpty) {
                   return noCategories(context);
                 }
 
@@ -75,12 +73,12 @@ class Category extends StatelessWidget {
                       mainAxisSpacing: 4,
                       crossAxisSpacing: 4,
                     ),
-                    itemCount: categoryController.allCategories.length,
+                    itemCount: controller.allCategories.length,
                     itemBuilder: (context, index) {
                       return CategoryCard(
-                        categoryController.docIds[index],
-                        categoryController.allCategories[index].catName,
-                        categoryController.allCategories[index].time,
+                        controller.docIds[index],
+                        controller.allCategories[index].catName,
+                        controller.allCategories[index].time,
                       );
                     },
                   ),
@@ -121,9 +119,9 @@ class Category extends StatelessWidget {
                 child: CustomBackButton(
                   onPressed: () {
                     expandTimer.cancel();
-                    logoutDialog(context, () {
-                      categoryController.signOut();
-                    });
+                    controller.nameController.clear();
+                    controller.nameController.dispose;
+                    logoutDialog(context);
                   },
                   icon: Icons.exit_to_app_outlined,
                 ),
@@ -139,7 +137,7 @@ class Category extends StatelessWidget {
     // Initialize the SearchBarAnimation widget
     searchBar = SearchBarAnimation(
       buttonElevation: 10,
-      textEditingController: nameController,
+      textEditingController: controller.nameController,
       isOriginalAnimation: true,
       buttonBorderColour: MemoRiseColors().mainBlue,
       enteredTextStyle: TextStyle(
@@ -159,7 +157,7 @@ class Category extends StatelessWidget {
         color: MemoRiseColors().mainBlue,
       ),
       enableKeyboardFocus: false,
-      durationInMilliSeconds: 5000,
+      durationInMilliSeconds: 2500,
       textAlignToRight: false,
       searchBoxBorderColour: MemoRiseColors().mainBlue,
       enableBoxBorder: true,
@@ -170,7 +168,7 @@ class Category extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0, left: 8.0, bottom: 4.0, right: 8),
       child: Obx(() {
         // Update text controller here if needed
-        nameController.text = 'Welcome ${categoryController.userName.value}';
+        controller.nameController.text = 'Welcome ${controller.userName.value}';
         return searchBar;
       }),
     );
@@ -200,7 +198,7 @@ class Category extends StatelessWidget {
 
   void showAddDialog(
       BuildContext context, bool isEdit, String docId, String categoryName) {
-    if (isEdit) categoryNameController.text = categoryName;
+    if (isEdit) controller.categoryNameController.text = categoryName;
 
     showDialog(
       context: context,
@@ -233,7 +231,7 @@ class Category extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomTextFormField(
-                          controller: categoryNameController,
+                          controller: controller.categoryNameController,
                           hint: isEdit ? categoryName : 'ex_home_needs'.tr,
                           label: 'category_name'.tr,
                           keyboardType: TextInputType.text),
@@ -245,7 +243,7 @@ class Category extends StatelessWidget {
                         fontSize: 16,
                         text: isEdit ? 'edit_with_space'.tr : 'add'.tr,
                         onPressed: () {
-                          if (categoryNameController.text == '') {
+                          if (controller.categoryNameController.text == '') {
                             UiHelper.getSnackBar(
                                 'error'.tr, 'enter_cat_name_first'.tr);
                             return;
@@ -255,12 +253,12 @@ class Category extends StatelessWidget {
                           UiHelper.showLoadingDialog('loading...'.tr);
 
                           isEdit
-                              ? categoryController.editCategory(
-                                  docId, categoryNameController.text.trim())
-                              : categoryController.addCategory(
-                                  categoryNameController.text.trim(),
+                              ? controller.editCategory(docId,
+                                  controller.categoryNameController.text.trim())
+                              : controller.addCategory(
+                                  controller.categoryNameController.text.trim(),
                                 );
-                          categoryNameController.clear();
+                          controller.categoryNameController.clear();
                         },
                       )
                     ],
@@ -274,7 +272,7 @@ class Category extends StatelessWidget {
     );
   }
 
-  logoutDialog(context, void Function()? logout) {
+  logoutDialog(context) {
     late AwesomeDialog dialog;
     dialog = AwesomeDialog(
       context: context,
@@ -284,7 +282,7 @@ class Category extends StatelessWidget {
       dismissOnTouchOutside: false,
       desc: 'r_u_sure?'.tr,
       btnOkText: 'logout'.tr,
-      btnOkOnPress: logout,
+      btnOkOnPress: () => controller.signOut(),
       btnCancelText: 'cancel'.tr,
       btnCancelOnPress: () {
         dialog.dismiss();

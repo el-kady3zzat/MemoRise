@@ -76,4 +76,13 @@ class _MyAppState extends State<MyApp> {
       ],
     );
   }
+
+  // String initialRoute() {
+  //   if (fireAuth.currentUser != null && fireAuth.currentUser!.emailVerified) {
+  //     Constants.uId = fireAuth.currentUser!.uid;
+  //     return '/home';
+  //   } else {
+  //     return '/login';
+  //   }
+  // }
 }

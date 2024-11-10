@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:memorise/model/cat_model.dart';
 import 'package:memorise/services/firebase_services.dart';
-import 'package:memorise/view/category/category.dart';
 
 class CategoriesController extends GetxController {
+  final TextEditingController categoryNameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
   final allCategories = <CategoryModel>[].obs;
   CategoryServices categoryServices = CategoryServices();
   late RxList<String> docIds = <String>[].obs;
@@ -34,6 +36,7 @@ class CategoriesController extends GetxController {
     if (await googleSignIn.isSignedIn()) {
       googleSignIn.disconnect();
     }
+
     await FirebaseAuth.instance.signOut();
     Get.offNamed('/login');
   }
@@ -41,8 +44,7 @@ class CategoriesController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    Category category = Category();
-    category.categoryNameController.dispose();
-    category.nameController.dispose();
+    allCategories.close();
+    categoryNameController.dispose();
   }
 }

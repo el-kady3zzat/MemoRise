@@ -67,8 +67,8 @@ class CategoryCard extends StatelessWidget {
         IconsButton(
           onPressed: () {
             Get.back();
-            category.categoryController.deleteCategory(docId);
-            category.categoryController.docIds.removeWhere((id) => id == docId);
+            category.controller.deleteCategory(docId);
+            category.controller.docIds.removeWhere((id) => id == docId);
           },
           text: 'delete'.tr,
           iconData: Icons.delete,

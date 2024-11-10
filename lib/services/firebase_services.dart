@@ -11,7 +11,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart'; // For handling file names
 
-import 'package:memorise/constants/constants.dart';
 import 'package:memorise/model/cat_model.dart';
 import 'package:memorise/model/note_model.dart';
 import 'package:memorise/theme/colors.dart';
@@ -70,6 +69,7 @@ class LoginServices {
 
     // If email doesn't exist, save it.
     if (!await doesEmailExist(googleUser.email)) {
+      debugPrint('============\n${_auth.currentUser!.uid}\n=================');
       RegisterServices().saveUser(
           _auth.currentUser!.uid, googleUser.displayName!, googleUser.email);
     }
@@ -165,7 +165,7 @@ class RegisterServices {
 
 class CategoryServices {
   final db = FirebaseFirestore.instance;
-  final String uId = Constants.uId;
+  String uId = FirebaseAuth.instance.currentUser!.uid;
   late List<String> docs = [];
 
   Stream<List<CategoryModel>> catStream() {
@@ -291,11 +291,10 @@ Future<void> deleteImages(catId) async {
 ////////////////////////////////////////////////////////////////////////////////
 
 class NoteServices {
-  int? progressDialogID;
   final db = FirebaseFirestore.instance;
   final String catDocId;
   late List<String> docs = [];
-
+  String uId = FirebaseAuth.instance.currentUser!.uid;
   NoteServices({
     required this.catDocId,
   });
@@ -408,8 +407,7 @@ class NoteServices {
       // Set the storage path
       // I'm storing uId and catDocId so, if the user deleted any main category,
       // those make me able to delete any images related to this category.
-      String storagePath =
-          'images/${Constants.uId}_${catDocId}_${noteDocId}_$fileName';
+      String storagePath = 'images/${uId}_${catDocId}_${noteDocId}_$fileName';
 
       // Create a reference to the location to upload to
       Reference storageRef = FirebaseStorage.instance.ref().child(storagePath);
