@@ -12,6 +12,15 @@ class LoginController extends GetxController {
   late CustomAwesomeDialog awesomeDialog = CustomAwesomeDialog();
   late LoginServices loginServices = LoginServices();
 
+  @override
+  void onInit() {
+    super.onInit();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {});
+    if (FirebaseAuth.instance.currentUser != null) {
+      debugPrint('=======\n${FirebaseAuth.instance.currentUser!.uid}\n=======');
+    }
+  }
+
   void checkInputFields(BuildContext context) {
     if (emailController.text.isEmpty || passController.text.isEmpty) {
       if (emailController.text.isEmpty && passController.text.isEmpty) {
@@ -62,6 +71,7 @@ class LoginController extends GetxController {
             'verification_msg'.tr, DialogType.info, false, null);
       }
     } on FirebaseAuthException catch (e) {
+      Get.back(); //closes loading dialog.
       if (e.code == 'user-not-found') {
         awesomeDialog.showDialog(context, 'error'.tr,
             'no_user_found_for_that_email'.tr, DialogType.error, false, null);
