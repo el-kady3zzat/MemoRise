@@ -39,15 +39,17 @@
 
 | Login Screen                | Register Screen                  | Categories Screen (Home Screen)                |
 |-------------------------------|------------------------------|-----------------------------|
-| <p align="center"><img src="https://github.com/user-attachments/assets/3c399ce9-60c9-47c7-a82d-269abd3f75ab" alt="1-MemoRise-Login" width="300" height="550"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/e14d1ae9-97b5-4176-8550-96129e582df8" alt="2-MemoRise-Register" width="300" height="550"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/631c53dd-85a0-420a-969b-c54c03693080" alt="3-MemoRise-Categories" width="300" height="550"/></p> |
+| <p align="center"><img src="https://github.com/user-attachments/assets/3c399ce9-60c9-47c7-a82d-269abd3f75ab" alt="1-MemoRise-Login" width="480" height="640"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/e14d1ae9-97b5-4176-8550-96129e582df8" alt="2-MemoRise-Register" width="480" height="640"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/631c53dd-85a0-420a-969b-c54c03693080" alt="3-MemoRise-Categories" width="480" height="640"/></p> |
 | <p align="center">Notes Screen</p>                | <p align="center">New Note Screen</p>                  | <p align="center">Note Without Image</p>              |
-| <p align="center"><img src="https://github.com/user-attachments/assets/c97ab585-7f08-486c-95ce-44c721bab7d2" alt="4-MemoRise-Notes" width="300" height="550"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/694a782d-a013-4a19-a407-a5dd0d1cebc3" alt="5-MemoRise-NewNote" width="300" height="550"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/b7bb1457-5440-47e7-816e-b1397cda6365" alt="6-MemoRise-NoteWithoutImg" width="300" height="550"/></p>
+| <p align="center"><img src="https://github.com/user-attachments/assets/c97ab585-7f08-486c-95ce-44c721bab7d2" alt="4-MemoRise-Notes" width="480" height="640"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/694a782d-a013-4a19-a407-a5dd0d1cebc3" alt="5-MemoRise-NewNote" width="480" height="640"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/b7bb1457-5440-47e7-816e-b1397cda6365" alt="6-MemoRise-NoteWithoutImg" width="480" height="640"/></p>
 | | <p align="center">Note With Image</p> | |
-| | <p align="center"><img src="https://github.com/user-attachments/assets/bcfc496d-e3bb-43a6-8a79-bb01f919f90a" alt="7-MemoRise-NoteWithImg" width="300" height="550"/></p> | |
+| | <p align="center"><img src="https://github.com/user-attachments/assets/bcfc496d-e3bb-43a6-8a79-bb01f919f90a" alt="7-MemoRise-NoteWithImg" width="480" height="640"/></p> | |
 
 ---
 
 ## Video Demo
+
+[Watch the Demo Video on Google Drive](https://drive.google.com/file/d/15W93JuqjB2wtFXeJhUy1o8AL6STPHua4/view?usp=sharing)
 
 ---
 
